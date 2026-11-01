@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizards Tabletop Event Scheduler - Enterprise Portal</title>
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <h1>🎲 Wizards Tabletop Event Scheduler</h1>
+        <span>Wizards EventLink Portal</span>
+    </header>
+
+    <main class="main-container">
+        <!-- Left Column: Create Event -->
+        <section class="card">
+            <div class="card-header">
+                <h2>📅 Schedule New Event</h2>
+            </div>
+            <div class="card-body">
+                <form id="createEventForm">
+                    <div class="form-group">
+                        <label class="form-label" for="eventName">Event Name</label>
+                        <input type="text" class="form-control" id="eventName" value="Friday Night Magic - Commander" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="gameId">Game Template</label>
+                        <select class="form-select" id="gameId" required>
+                            <!-- Dynamically populated by app.js -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="gameFormatId">Play Format</label>
+                        <select class="form-select" id="gameFormatId" required>
+                            <!-- Dynamically populated based on selected Game Template -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="startTime">Date & Start Time</label>
+                        <input type="datetime-local" class="form-control" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="capacity">Capacity (Max 30)</label>
+                        <input type="number" class="form-control" id="capacity" value="30" max="30" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="location">Location / Table Area</label>
+                        <input type="text" class="form-control" id="location" value="Main Tournament Hall" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Event</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Right Column: Agenda View -->
+        <section class="card">
+            <div class="card-header flex-header">
+                <h2>📋 Scheduled Events Agenda</h2>
+                <button class="btn btn-outline-light" onclick="App.loadEvents()">🔄 Refresh</button>
+            </div>
+            <div class="card-body" id="eventsList">
+                <p class="text-placeholder">Loading scheduled events...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Management Modal -->
+    <div class="modal-backdrop" id="eventModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="modalEventTitle">Event Management</h3>
+                <button class="close-btn" onclick="App.closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-col-left">
+                    <h4>Check-in QR Code</h4>
+                    <div class="qr-container">
+                        <img id="modalQrCode" src="" alt="Check-in QR Code" />
+                    </div>
+                    <a id="modalIcsBtn" href="#" class="btn btn-outline" target="_blank">📥 Download Calendar Invite (.ics)</a>
+                </div>
+                <div class="modal-col-right">
+                    <h4>Player Registration</h4>
+                    <p id="modalEventMeta" class="modal-meta"></p>
+                    <div id="registrationAlert"></div>
+                    <form id="registerForm">
+                        <input type="hidden" id="modalEventId">
+                        <div class="form-group">
+                            <label class="form-label" for="playerName">Player Name</label>
+                            <input type="text" class="form-control" id="playerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="playerEmail">Player Email</label>
+                            <input type="email" class="form-control" id="playerEmail" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Register Participant</button>
+                    </form>
+                    <div class="roster-header">
+                        <span class="roster-title">Registered Roster</span>
+                        <span class="badge badge-info"><span id="regCount">0</span> / <span id="regCapacity">0</span></span>
+                    </div>
+                    <ul id="registeredPlayersList" class="roster-list">
+                        <li class="roster-item roster-empty">No registrations recorded.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

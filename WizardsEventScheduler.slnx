@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WizardsEventScheduler.Api/WizardsEventScheduler.Api.csproj" />
+  <Project Path="WizardsEventScheduler.Tests/WizardsEventScheduler.Tests.csproj" />
+</Solution>

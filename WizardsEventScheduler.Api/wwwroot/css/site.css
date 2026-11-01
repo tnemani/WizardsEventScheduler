@@ -1,0 +1,404 @@
+:root {
+    --primary-dark: #0f172a;
+    --primary-slate: #1e293b;
+    --accent-blue: #5865F2; /* Official Wizards / Hasbro Indigo Accent */
+    --accent-hover: #4752c4;
+    --bg-body: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --success-bg: rgba(34, 197, 94, 0.15);
+    --success-text: #166534;
+    --danger-bg: rgba(239, 68, 68, 0.15);
+    --danger-text: #991b1b;
+    --info-bg: rgba(88, 101, 242, 0.12);
+    --info-text: #4752c4;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+header.navbar-custom {
+    background: #ffffff;
+    color: var(--primary-dark);
+    padding: 1.25rem 2rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.navbar-custom h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--primary-dark);
+}
+
+header.navbar-custom span {
+    background: #f1f5f9;
+    color: var(--text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.main-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card-header {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-dark);
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.card-header.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+    color: var(--text-muted);
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+    color: var(--text-main);
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.15);
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-dark {
+    background-color: var(--primary-dark);
+    color: #ffffff;
+}
+
+.btn-dark:hover {
+    background-color: var(--primary-slate);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    background: #f1f5f9;
+}
+
+.btn-outline-light {
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    color: var(--primary-dark);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+    width: auto;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    background: #e2e8f0;
+}
+
+.event-card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.event-card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.event-title {
+    margin: 0 0 0.375rem 0;
+    font-size: 1rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.event-meta {
+    margin: 0;
+    font-size: 0.825rem;
+    color: var(--text-muted);
+}
+
+.event-actions {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-transform: uppercase;
+}
+
+.badge-success { background: var(--success-bg); color: var(--success-text); }
+.badge-danger { background: var(--danger-bg); color: var(--danger-text); }
+.badge-info { background: var(--info-bg); color: var(--info-text); }
+
+.text-placeholder {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+}
+
+/* Modal styling */
+.modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-dialog {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 850px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-dark);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .modal-body { grid-template-columns: 1fr; }
+}
+
+.modal-col-left {
+    text-align: center;
+    border-right: 1px solid var(--border-color);
+    padding-right: 1.5rem;
+}
+
+.modal-col-left h4 {
+    font-size: 0.95rem;
+    margin-top: 0;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.qr-container {
+    background: #f8fafc;
+    border: 2px dashed var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-container img {
+    max-height: 180px;
+    max-width: 100%;
+}
+
+.modal-col-right h4 {
+    font-size: 0.95rem;
+    margin-top: 0;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.modal-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.roster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.25rem 0 0.5rem 0;
+}
+
+.roster-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.roster-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 140px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    background: #f8fafc;
+}
+
+.roster-item {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.roster-item:last-child {
+    border-bottom: none;
+}
+
+.roster-empty {
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--primary-dark);
+}
+
+.alert-box {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.alert-success { background: var(--success-bg); color: var(--success-text); }
+.alert-danger { background: var(--danger-bg); color: var(--danger-text); }
